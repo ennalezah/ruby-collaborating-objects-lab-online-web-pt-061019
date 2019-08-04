@@ -15,11 +15,12 @@ class Song
     # song.artist.add_song(self)
     # song
     
+    # splits filename and assigns element to variable in order to what array 
     artist, title = filename.split(" - ")
     self.new(title).tap {|song|
       song.artist = Artist.find_or_create_by_name(artist)
       song.artist.add_song(song)
     }
-    # tap returns object being created
+    # .tap usually used when creating new object and associating it with other objects, returns object being created
   end
 end
